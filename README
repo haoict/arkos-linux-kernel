@@ -1,3 +1,4 @@
+***For RG351 devices only.  For OGA and other clones, switch to the odroidgoA-4.4.y branch.***
 Build
 =====
 - On Ubuntu desktop
@@ -30,7 +31,7 @@ aarch64-linux-gnu-gcc -v
 ```
 Clone this git and build the kernel
 ```
-https://github.com/christianhaitian/linux.git -b odroidgoA-4.4.y
+https://github.com/christianhaitian/linux.git -b rg351
 cd linux
 make rg351p_defconfig_tweaked
 make
