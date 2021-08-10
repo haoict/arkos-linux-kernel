@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
- * Copyright (c) 2019 Hardkernel Co., Ltd
-  
-										   
-  
+ * Copyright (c) 2020 Hardkernel Co., Ltd
  */
 
 /dts-v1/;
@@ -16,29 +13,29 @@
 #include "rk3326-linux.dtsi"
 
 / {
-	model = "Hardkernel ODROID-GO2";
-	compatible = "rockchip,rk3326-odroidgo2-linux", "rockchip,rk3326";
+	model = "Anbernic RG351V";
+	compatible = "rockchip,rk3326-rg351v-linux", "rockchip,rk3326";
 
 	chosen {
                 bootargs = "";
 	};
 
-        gpio_keys: rg351-keys {
-                        compatible = "gpio-keys";
-                        #address-cells = <1>;
-                        #size-cells = <0>;
-                        autorepeat;
-                        button@0 {
-                                label = "GPIO BTN-VOLUP";
-                                linux,code = <KEY_VOLUMEUP>;
-                                gpios = <&gpio2 RK_PA0 GPIO_ACTIVE_LOW>;
-                        };
-                        button@1 {
-                                label = "GPIO BTN-VOLDN";
-                                linux,code = <KEY_VOLUMEDOWN>;
-                                gpios = <&gpio2 RK_PA1 GPIO_ACTIVE_LOW>;
-                        };
-        };
+	gpio_keys: rg351v-keys {
+		compatible = "gpio-keys";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		autorepeat;
+		button@0 {
+			label = "GPIO BTN-VOLUP";
+			linux,code = <KEY_VOLUMEUP>;
+			gpios = <&gpio2 RK_PA0 GPIO_ACTIVE_LOW>;
+		};
+		button@1 {
+			label = "GPIO BTN-VOLDN";
+			linux,code = <KEY_VOLUMEDOWN>;
+			gpios = <&gpio2 RK_PA1 GPIO_ACTIVE_LOW>;
+		};
+	};
 
 	fiq-debugger {
 		compatible = "rockchip,fiq-debugger";
@@ -51,20 +48,6 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&uart2m1_xfer>;
 		status = "okay";
-	};
-
-	leds: gpio_leds {
-		compatible = "gpio-leds";
-
-		pinctrl-names = "led_pins";
-		pinctrl-0 = <&led_pins>;
-
-		/* Blue LED : GPIO0_C1 */
-		heartbeat {
-			label = "blue:heartbeat";
-			gpios = <&gpio0 RK_PC1 GPIO_ACTIVE_HIGH>;
-			linux,default-trigger = "heartbeat";
-		};
 	};
 
 	backlight: backlight {
@@ -104,19 +87,20 @@
 			240 241 242 243 244 245 246 247
 			248 249 250 251 252 253 254 255>;
 		default-brightness-level = <200>;
-   
- 
-				  
-						   
+	};
 
-							 
-						  
+	leds: gpio_leds {
+		compatible = "gpio-leds";
 
-			 
-							
-											
-									   
-	
+		pinctrl-names = "led_pins";
+		pinctrl-0 = <&led_pins>;
+
+		/* Blue LED : GPIO0_C1 */
+		heartbeat {
+			label = "blue:heartbeat";
+			gpios = <&gpio0 RK_PC1 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "heartbeat";
+		};
 	};
 
 	rk817-sound {
@@ -149,7 +133,7 @@
 		regulator-min-microvolt = <3800000>;
 		regulator-max-microvolt = <3800000>;
 	};
-
+/*
 	vcc_host: vcc_host {
 		compatible = "regulator-fixed";
 		regulator-name = "vcc_host";
@@ -157,11 +141,11 @@
 		regulator-max-microvolt = <5000000>;
 
 		gpio = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
-		//enable-active-high;
+		enable-active-high;
 		regulator-always-on;
 		vin-supply = <&vccsys>;
 	};
-
+*/
 };
 
 
@@ -177,17 +161,14 @@
 &cpu0_opp_table {
 	rockchip,avs = <1>;
 
-	/* bin scaling clock 1.296MHz */
+	/* default 1.296GHz */
 	rockchip,bin-scaling-sel = <
-		0               13
-		1               13
+		0	13
+		1	13
 	>;
 
-	/delete-node/ opp-408000000;
-	/delete-node/ opp-600000000;
 	/delete-node/ opp-816000000;
-	/delete-node/ opp-1416000000;
-							  
+	/delete-node/ opp-1248000000;
 };
 
 &display_subsystem {
@@ -229,17 +210,6 @@
 
 		dsi,format = <MIPI_DSI_FMT_RGB888>;
 		dsi,lanes = <4>;
-
-	
-										   
-												   
-
-						   
-							  
-									
-							 
-	
-
 		panel-init-sequence = [
 			15 00 02 FF 30
 			15 00 02 FF 52
@@ -351,21 +321,21 @@
 			15 00 02 42 80
 			15 00 02 43 81
 			15 00 02 44 11
-			15 00 02 45 E6
-			15 00 02 46 E5
+			15 00 02 45 F2
+			15 00 02 46 F1
 			15 00 02 47 11
-			15 00 02 48 E8
-			15 00 02 49 E7
+			15 00 02 48 F4
+			15 00 02 49 F3
 			15 00 02 50 02
 			15 00 02 51 01
 			15 00 02 52 04
 			15 00 02 53 03
 			15 00 02 54 11
-			15 00 02 55 EA
-			15 00 02 56 E9
+			15 00 02 55 F6
+			15 00 02 56 F5
 			15 00 02 57 11
-			15 00 02 58 EC
-			15 00 02 59 EB
+			15 00 02 58 F8
+			15 00 02 59 F7
 			15 00 02 7E 02
 			15 00 02 7F 80
 			15 00 02 E0 5A
@@ -462,11 +432,6 @@
 	status = "okay";
 };
 
-&route_dsi {
-	connect = <&vopb_out_dsi>;
-	status = "okay";
-};
-
 &dfi {
 	status = "okay";
 };
@@ -486,23 +451,18 @@
 	};
 };
 
-&gpu_opp_table {
-	/delete-node/ opp-200000000;
-	/delete-node/ opp-300000000;
-};
-
 &emmc {
-	status = "disabled";
-};
-
-
-&sfc {
 	status = "disabled";
 };
 
 &gpu {
 	mali-supply = <&vdd_logic>;
 	status = "okay";
+};
+
+&gpu_opp_table {
+	/delete-node/ opp-200000000;
+	/delete-node/ opp-300000000;
 };
 
 &i2c0 {
@@ -743,19 +703,19 @@
 				};
 			};
 
-						   
-					   
-						
-					  
-										
-										
+			/* Rev 1.1 WIFI Power */
+			vcc_wifi: LDO_REG9 {
+				regulator-always-on;
+				regulator-boot-on;
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
 
-								
-						 
-							  
-											 
-	  
-	 
+				regulator-name = "vcc_wifi";
+				regulator-state-mem {
+					regulator-off-in-suspend;
+					regulator-suspend-microvolt = <3300000>;
+				};
+			};
 
 			dcdc_boost: BOOST {
 				regulator-always-on;
@@ -813,7 +773,6 @@
 			chrg_finish_cur = <52>;
 			virtual_power = <0>;
 			sample_res = <10>;
-
 
 			/* P.C.B rev0.2 DC Detect & Charger Status LED GPIO */
 			dc_det_gpio  = <&gpio0 RK_PB3 GPIO_ACTIVE_HIGH>;
@@ -879,14 +838,6 @@
 	status = "okay";
 };
 
-&rkisp1 {
-	status = "okay";
-};
-
-&spi0 {
-	status = "disabled";
-};
-
 &pmu_io_domains {
 	/* PMU GRF Register Voltage select control */
 	status = "okay";
@@ -897,10 +848,10 @@
 	pmuio2-supply = <&vcc3v3_pmu>;
 };
 
-					  
+/* RG351V Motor PWM */
 &pwm0 {
 	status = "okay";
-					  
+	label = "rumble-pwm";
 };
 
 /* LCD Backlight PWM */
@@ -908,14 +859,13 @@
 	status = "okay";
 };
 
-			
-						   
-				 
-  
-
-		 
-				 
-  
+&route_dsi {
+	connect = <&vopb_out_dsi>;
+	status = "okay";
+};
+&rkisp1 {
+	status = "okay";
+};
 
 &rk_rga {
 	status = "okay";
@@ -926,15 +876,15 @@
 	rockchip,sleep-debug-en = <1>;
 };
 
+&sfc {
+	status = "disabled";
+};
 
-	  
-					 
-  
 
+&spi0 {
+	status = "disabled";
+};
 
-	   
-					 
-  
 
 &saradc {
 	status = "okay";
@@ -974,10 +924,6 @@
 	vmmc-supply = <&vcc_sd>;
 	status = "okay";
 };
-
-	   
-					 
-  
 
 &tsadc {
 	pinctrl-names = "gpio", "otpout";
