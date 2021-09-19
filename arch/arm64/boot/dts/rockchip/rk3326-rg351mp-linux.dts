@@ -39,6 +39,7 @@
 
 	joypad: odroidgo3-joypad {
                 compatible = "odroidgo3-joypad";
+		 pwms = <&pwm0 0 1000000 0>;
 
                 joypad-name = "GO-Super Gamepad";
                 joypad-product = <0x1100>;
@@ -1043,7 +1044,6 @@
 
 &pwm0 {
 	status = "okay";
-	pinctrl-names = "default", "active";
 };
 
 /* LCD Backlight PWM */
