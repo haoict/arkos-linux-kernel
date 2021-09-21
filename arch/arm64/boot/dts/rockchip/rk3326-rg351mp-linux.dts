@@ -400,10 +400,21 @@
 
 		dsi,format = <MIPI_DSI_FMT_RGB888>;
 		dsi,lanes = <4>;
+		/*
+			- panel-init-sequence data description -
+			  mipi_cmd, delay(ms), len, lcd_cmd, lcd_data...
+
+			- mipi_cmd description -
+			  05 : MIPI_DSI_SHORT_WRITE
+			  15 : MIPI_DSI_SHORT_WRITE_PARAM
+			  39 : MIPI_DSI_LONG_WRITE		
+		*/
 		panel-init-sequence = [
+		/*Set to page 1*/
 			15 00 02 FF 30
 			15 00 02 FF 52
 			15 00 02 FF 01
+			
 			15 00 02 E3 00
 			15 00 02 40 0A
 			15 00 02 03 40
@@ -600,20 +611,20 @@
 			native-mode = <&timing0>;
 
 			timing0: timing0 {
-				clock-frequency = <27500000>;
+				clock-frequency = <26400000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <50>;
+				hfront-porch = <80>;
 				hsync-len = <2>;
-				hback-porch = <90>;
-				vfront-porch = <18>;
-				vsync-len = <2>;
-				vback-porch = <86>;
+				hback-porch = <78>;
+				vfront-porch = <25>;
+				vsync-len = <15>;
+				vback-porch = <30>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
 				pixelclk-active = <0>;
-			};
+			};		
 		};
 	};
 };
