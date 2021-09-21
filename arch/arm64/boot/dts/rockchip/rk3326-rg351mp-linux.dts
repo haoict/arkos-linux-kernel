@@ -611,20 +611,20 @@
 			native-mode = <&timing0>;
 
 			timing0: timing0 {
-				clock-frequency = <26400000>;
+				clock-frequency = <25500000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <80>;
+				hfront-porch = <70>;
 				hsync-len = <2>;
-				hback-porch = <78>;
-				vfront-porch = <25>;
-				vsync-len = <15>;
+				hback-porch = <90>;
+				vfront-porch = <18>;
+				vsync-len = <2>;
 				vback-porch = <30>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
 				pixelclk-active = <0>;
-			};		
+			};	
 		};
 	};
 };
