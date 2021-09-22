@@ -39,7 +39,8 @@
 
 	joypad: odroidgo3-joypad {
                 compatible = "odroidgo3-joypad";
-		 pwms = <&pwm0 0 1000000 0>;
+		 pwms = <&pwm0 0 20000000 0>;
+		 pwm-names = "enable";
 
                 joypad-name = "GO-Super Gamepad";
                 joypad-product = <0x1100>;
@@ -71,6 +72,7 @@
 		/* gpio pincontrol setup */
                 pinctrl-names = "default";
                 pinctrl-0 = <&btn_pins>;
+                pinctrl-1 = <&pwm0_pin>;
 
 		/* Analog mux define */
 		io-channel-names = "amux_adc";
@@ -324,17 +326,6 @@
 		regulator-max-microvolt = <3800000>;
 	};
 
-	vcc_host: vcc_host {
-		compatible = "regulator-fixed";
-		regulator-name = "vcc_host";
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <5000000>;
-
-		gpio = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-		vin-supply = <&vccsys>;
-	};
 };
 
 &bus_apll {
@@ -1053,6 +1044,7 @@
 	pmuio2-supply = <&vcc3v3_pmu>;
 };
 
+/* Rumble PWM */
 &pwm0 {
 	status = "okay";
 };
