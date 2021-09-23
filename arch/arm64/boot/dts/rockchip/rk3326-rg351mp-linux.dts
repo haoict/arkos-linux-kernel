@@ -601,7 +601,7 @@
 		display-timings {
 			native-mode = <&timing0>;
 
-			timing0: timing0 {
+			timing0: 60Hz {
 				clock-frequency = <25500000>;
 				hactive = <640>;
 				vactive = <480>;
@@ -615,7 +615,37 @@
 				vsync-active = <0>;
 				de-active = <0>;
 				pixelclk-active = <0>;
-			};	
+			};
+			timing1: 50Hz {
+				clock-frequency = <25500000>;
+				hactive = <640>;
+				vactive = <480>;
+				hfront-porch = <142>;
+				hsync-len = <2>;
+				hback-porch = <180>;
+				vfront-porch = <18>;
+				vsync-len = <2>;
+				vback-porch = <29>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+			timing2: 75Hz {
+				clock-frequency = <30600000>;
+				hactive = <640>;
+				vactive = <480>;
+				hfront-porch = <40>;
+				hsync-len = <2>;
+				hback-porch = <88>;
+				vfront-porch = <18>;
+				vsync-len = <2>;
+				vback-porch = <30>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
 		};
 	};
 };
