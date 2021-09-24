@@ -401,11 +401,9 @@
 			  39 : MIPI_DSI_LONG_WRITE		
 		*/
 		panel-init-sequence = [
-		/*Set to page 1*/
 			15 00 02 FF 30
 			15 00 02 FF 52
 			15 00 02 FF 01
-			
 			15 00 02 E3 00
 			15 00 02 40 0A
 			15 00 02 03 40
@@ -513,21 +511,21 @@
 			15 00 02 42 80
 			15 00 02 43 81
 			15 00 02 44 11
-			15 00 02 45 F2
-			15 00 02 46 F1
+			15 00 02 45 E6
+			15 00 02 46 E5
 			15 00 02 47 11
-			15 00 02 48 F4
-			15 00 02 49 F3
+			15 00 02 48 E8
+			15 00 02 49 E7
 			15 00 02 50 02
 			15 00 02 51 01
 			15 00 02 52 04
 			15 00 02 53 03
 			15 00 02 54 11
-			15 00 02 55 F6
-			15 00 02 56 F5
+			15 00 02 55 EA
+			15 00 02 56 E9
 			15 00 02 57 11
-			15 00 02 58 F8
-			15 00 02 59 F7
+			15 00 02 58 EC
+			15 00 02 59 EB
 			15 00 02 7E 02
 			15 00 02 7F 80
 			15 00 02 E0 5A
@@ -605,12 +603,12 @@
 				clock-frequency = <25500000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <70>;
+				hfront-porch = <104>;
 				hsync-len = <2>;
-				hback-porch = <90>;
-				vfront-porch = <18>;
+				hback-porch = <104>;
+				vfront-porch = <13>;
 				vsync-len = <2>;
-				vback-porch = <30>;
+				vback-porch = <5>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
@@ -620,12 +618,12 @@
 				clock-frequency = <25500000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <142>;
+				hfront-porch = <188>;
 				hsync-len = <2>;
-				hback-porch = <180>;
-				vfront-porch = <18>;
+				hback-porch = <190>;
+				vfront-porch = <13>;
 				vsync-len = <2>;
-				vback-porch = <29>;
+				vback-porch = <5>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
@@ -635,12 +633,12 @@
 				clock-frequency = <30600000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <40>;
+				hfront-porch = <87>;
 				hsync-len = <2>;
-				hback-porch = <88>;
-				vfront-porch = <18>;
+				hback-porch = <87>;
+				vfront-porch = <13>;
 				vsync-len = <2>;
-				vback-porch = <30>;
+				vback-porch = <5>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
