@@ -39,10 +39,10 @@
 
 	joypad: odroidgo3-joypad {
                 compatible = "odroidgo3-joypad";
-                pwms = <&pwm0 0 16666667 0>;		 
+                pwms = <&pwm0 0 200000000 0>;		 
                 pwm-names = "enable";
                 rumble-boost-weak = <0x0000>;
-                rumble-boost-strong = <0x4CCC>;
+                rumble-boost-strong = <0x0000>;
 		 
                 joypad-name = "GO-Super Gamepad";
                 joypad-product = <0x1100>;
@@ -64,6 +64,17 @@
 		   * for adc calibration value setup(current adcs value -> cal value)
 		   /sys/devices/platform/odroidgo3_joypad/adc_cal [rw]
 		   ex) echo 0 > adc_cal
+
+		   * for rumble period(ns)
+		   /sys/devices/platform/odroidgo3_joypad/rumble_period
+		   ex) echo 20000000 > rumble_duty_cycle
+		   ex) cat rumble_duty_cycle -->get current duty cycle
+
+		   * for rumble boost(0~65535)
+		   /sys/devices/platform/odroidgo3_joypad/rumble_boost_weak
+		   /sys/devices/platform/odroidgo3_joypad/rumble_boost_strong
+
+
 		   * for amux data debug
 		   * Joypad driver is disabled when using this sysfs.
 		   /sys/devices/platform/odroidgo3_joypad/amux_debug [rw]
