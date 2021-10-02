@@ -134,6 +134,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-odroidgo3-linux.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-rg351p-linux.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-rg351v-linux.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-rg351mp-linux.dtb
+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-rg351mp-notimingchange-linux.dtb
 
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
