@@ -613,12 +613,12 @@
 			native-mode = <&timing0>;
 
 			timing0: 60Hz {
-				clock-frequency = <25500000>;
+				clock-frequency = <26400000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <104>;
+				hfront-porch = <119>;
 				hsync-len = <2>;
-				hback-porch = <104>;
+				hback-porch = <119>;
 				vfront-porch = <13>;
 				vsync-len = <2>;
 				vback-porch = <5>;
@@ -628,12 +628,12 @@
 				pixelclk-active = <0>;
 			};
 			timing1: 50Hz {
-				clock-frequency = <25500000>;
+				clock-frequency = <26400000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <188>;
+				hfront-porch = <207>;
 				hsync-len = <2>;
-				hback-porch = <190>;
+				hback-porch = <207>;
 				vfront-porch = <13>;
 				vsync-len = <2>;
 				vback-porch = <5>;
@@ -643,12 +643,12 @@
 				pixelclk-active = <0>;
 			};
 			timing2: 75Hz {
-				clock-frequency = <30600000>;
+				clock-frequency = <26400000>;
 				hactive = <640>;
 				vactive = <480>;
-				hfront-porch = <87>;
+				hfront-porch = <31>;
 				hsync-len = <2>;
-				hback-porch = <87>;
+				hback-porch = <31>;
 				vfront-porch = <13>;
 				vsync-len = <2>;
 				vback-porch = <5>;
