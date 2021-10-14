@@ -241,6 +241,7 @@
 			15 00 02 B0 00
 			15 00 02 B1 A0
 			15 00 02 B4 02
+			39 00 05 B5 09 0A 1F 2D
 			15 00 03 B6 20 02
 			15 00 02 E9 00
 			39 00 05 F7 A9 51 2C 82
@@ -259,15 +260,15 @@
 			native-mode = <&timing0>;
 
 			timing0: timing0 {
-				clock-frequency = <17000000>;
+				clock-frequency = <12000000>;
 				hactive = <320>;
 				vactive = <480>;
-				hfront-porch = <130>;
+				hfront-porch = <31>;
 				hsync-len = <4>;
-				hback-porch = <130>;
-				vfront-porch = <2>;
+				hback-porch = <45>;
+				vfront-porch = <9>;
 				vsync-len = <1>;
-				vback-porch = <2>;
+				vback-porch = <10>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
