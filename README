@@ -31,9 +31,9 @@ aarch64-linux-gnu-gcc -v
 ```
 Clone this git and build the kernel
 ```
-git clone --depth=1 -b rg351 https://github.com/christianhaitian/linux.git
+git clone --depth=1 -b rg351 https://github.com/haoict/arkos-linux-kernel.git
 cd linux
-make rg351p_tweaked_defconfig
+make rg351p_tweaked_defconfig_docker_support
 make -j$(nproc)
 ```
 Once the kernel build is done, you should have an Image and the following dtb files.  These will go to the /boot partition:
